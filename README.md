@@ -25,4 +25,40 @@ T.val: Para la evaluación de operaciones de multiplicación y división.
 
 Num.val: Para el valor léxico del número leído.
 
-## Fase 3 Conjunto de Primeros, Segundos y producción 
+## Fase 3 Conjunto de Primeros, Segundos y preducción 
+
+Los conjuntos de primeros, segundos y de predicción generados para la gramática base se consideraron tales como:
+
+Primeros:
+
+F -> {'(', num }
+
+T -> {'(', num }
+
+E -> {'(', num }
+
+Segundos: 
+
+E -> {')', $}
+
+T -> {'+', '-', ')', $}
+
+F -> {'*', '/', '+', '-', ')', $}
+
+Predicción:
+
+E → E + T	{ (, num }
+
+E → E - T	{ (, num }
+
+E → T	{ (, num }
+
+T → T * F	{ (, num }
+
+T → T / F	{ (, num }
+
+T → F	{ (, num }
+
+F → ( E )	{ ( }
+
+F → num	{ num }
