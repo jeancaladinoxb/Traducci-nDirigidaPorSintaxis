@@ -12,6 +12,17 @@ T -> T * F | T / F | F
 
 F -> (E) | num 
 
+En adición se consideró la siguiente derivación para una gramática de tipo LL(1)
+
+E  → T E'
+
+E' → + T E' | - T E' | ε
+
+T  → F T'
+
+T' → * F T' | / F T' | ε
+
+F  → (E) | num
 
 Donde se consideró que E es una expresión que representa las sumas y restas, T es un término para multiplicaciones y divisiones, F representará el factor de números u operaciones en paréntesis y num será un número como token terminal. A su vez es de considerar que esta gramática permite el respeto a la precedencia de operaciones.
 
@@ -31,34 +42,60 @@ Los conjuntos de primeros, segundos y de predicción generados para la gramátic
 
 Primeros:
 
-F -> {'(', num }
+E  ->	{ (, num }
 
-T -> {'(', num }
+E' ->	{ +, -, ε }
 
-E -> {'(', num }
+T  ->	{ (, num }
+
+T' ->	{ *, /, ε }
+
+F  ->	{ (, num }
 
 Segundos: 
 
-E -> {')', $}
+E  ->	{ ), $ }
 
-T -> {'+', '-', ')', $}
+E' ->	{ ), $ }
 
-F -> {'*', '/', '+', '-', ')', $}
+T  ->	{ +, -, ), $ }
+
+T' ->	{ +, -, ), $ }
+
+F  ->	{ *, /, +, -, ), $ }
 
 Predicción:
 
-E → E + T	{ (, num }
+E -> T E'	{ (, num }
 
-E → E - T	{ (, num }
+E' -> + T E'	{ + }
 
-E → T	{ (, num }
+E' -> - T E'	{ - }
 
-T → T * F	{ (, num }
+E' -> ε	{ ), $ }
 
-T → T / F	{ (, num }
+T -> F T'	{ (, num }
 
-T → F	{ (, num }
+T' -> * F T'	{ * }
 
-F → ( E )	{ ( }
+T' -> / F T'	{ / }
 
-F → num	{ num }
+T' -> ε	{ +, -, ), $ }
+
+F -> (E)	{ ( }
+
+F -> num	{ num }
+
+## Fase 4 (Árbol decorado)
+
+Para la creación del árbol se decidió la derivación de la gramática para un analizador de tipo LL(1), quedando de la siguiente forma:
+
+E  → T E'
+
+E' → + T E' | - T E' | ε
+
+T  → F T'
+
+T' → * F T' | / F T' | ε
+
+F  → (E) | num
