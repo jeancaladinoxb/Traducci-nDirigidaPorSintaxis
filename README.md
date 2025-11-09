@@ -30,11 +30,15 @@ Donde se consideró que E es una expresión que representa las sumas y restas, T
 
 Para la fase de atributos se implementaron los siguientes con respecto a la gramáticas establecida con anterioridad:
 
-E.val: Para la evaluación de operaciones de suma y resta.
+E	.val	Valor total de la expresión
 
-T.val: Para la evaluación de operaciones de multiplicación y división.
+E'	.inh, .val	Valor acumulado de sumas/restas
 
-Num.val: Para el valor léxico del número leído.
+T	.val	Valor de un término (multiplicaciones/divisiones)
+
+T'	.inh, .val	Valor acumulado de productos/divisiones
+
+F	.val	Valor de un número o subexpresión (E)
 
 ## Fase 3 Conjunto de Primeros, Segundos y preducción 
 
@@ -99,3 +103,9 @@ T  → F T'
 T' → * F T' | / F T' | ε
 
 F  → (E) | num
+
+En la siguiente imagen se puede observar el árbol decorado para la siguiente operación ejemplo: 10 - 2 * (3 + 1)
+
+![Arbol](Images/arbol.png)
+
+
