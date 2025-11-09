@@ -7,7 +7,10 @@ Para el siguiente proyecto se desarrolló un traductor básico dirigido por sint
 Para la gramática de este proyecto de operaciones aritméticas, se consideró la siguiente:
 
 E -> E + T | E - T | T
+
 T -> T * F | T / F | F
+
 F -> (E) | num 
 
-Donde se considero que E es una expresión que representa las sumas y restas, T es un término para multiplicaciones y divisiones, F representará el factor de números u operaciones en paréntesis y num será un número como token terminal
+
+Donde se consideró que E es una expresión que representa las sumas y restas, T es un término para multiplicaciones y divisiones, F representará el factor de números u operaciones en paréntesis y num será un número como token terminal
