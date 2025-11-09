@@ -234,7 +234,6 @@ Pasos para ejecutar el proyecto del traductor dirigido por la sintaxis desde con
    * Guarda los cambios y vuelve a ejecutar:
      python traductor_sintaxis.py
 
-Con estos pasos, cualquier usuario puede ejecutar el proyecto completo desde la terminal sin usar un entorno de desarrollo.
                           
 
 
