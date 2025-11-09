@@ -106,6 +106,6 @@ F  → (E) | num
 
 En la siguiente imagen se puede observar el árbol decorado para la siguiente operación ejemplo: 10 - 2 * (3 + 1)
 
-![Arbol](Images/arbol.png)
+![Arbol](Imagenes/arbol.png)
 
 
