@@ -13,4 +13,7 @@ T -> T * F | T / F | F
 F -> (E) | num 
 
 
-Donde se consideró que E es una expresión que representa las sumas y restas, T es un término para multiplicaciones y divisiones, F representará el factor de números u operaciones en paréntesis y num será un número como token terminal
+Donde se consideró que E es una expresión que representa las sumas y restas, T es un término para multiplicaciones y divisiones, F representará el factor de números u operaciones en paréntesis y num será un número como token terminal. A su vez es de considerar que esta gramática permite el respeto a la precedencia de operaciones.
+
+## Fase 2 Atributos
+
