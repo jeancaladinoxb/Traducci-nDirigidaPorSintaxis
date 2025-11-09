@@ -108,4 +108,133 @@ En la siguiente imagen se puede observar el árbol decorado para la siguiente op
 
 ![Arbol](Imagenes/arbol.png)
 
+## Fase 5 Tabla de símbolos
+
+El sistema por consola creará una tabla de símbolos de acuerdo a las operaciones formadas o ingresadas a través de un txt y se verá de la siguiente manera:
+
+Tabla de Símbolos:
+
+  resultado_1 -> tipo: float, valor: 11.0
+
+  resultado_2 -> tipo: float, valor: 21.0
+
+  resultado_3 -> tipo: float, valor: 8.0
+
+  resultado_4 -> tipo: float, valor: 2.0
+
+## Fase 6 Gramática de atributos 
+
+
+E → T E'
+    { E'.inh = T.val
+      E.val  = E'.val }
+
+E' → + T E1'
+    { E1'.inh = E'.inh + T.val
+      E'.val  = E1'.val }
+
+T → F T'
+    { T'.inh = F.val
+      T.val  = T'.val }
+
+F → num
+    { F.val = num.lexema }
+
+## Fase 7 ETDS
+
+Producción      Acciones Semánticas
+
+`E → T E'`    `{ E'.inh := T.val; E.val := E'.val }`   
+         
+`E' → + T E'`  `{ E1'.inh := E'.inh + T.val; E'.val := E1'.val }`
+
+`E' → - T E'`  `{ E1'.inh := E'.inh - T.val; E'.val := E1'.val }`
+ 
+`E' → ε`       `{ E'.val := E'.inh }` 
+                            
+`T → F T'`     `{ T'.inh := F.val; T.val := T'.val }`  
+           
+`T' → * F T'`  `{ T1'.inh := T'.inh * F.val; T'.val := T1'.val }` 
+
+`T' → / F T'`  `{ T1'.inh := T'.inh / F.val; T'.val := T1'.val }` 
+
+`T' → ε`       `{ T'.val := T'.inh }`     
+                        
+`F → (E)`      `{ F.val := E.val }`   
+                            
+`F → num`      `{ F.val := num.valor }` 
+
+## Pasos para ejecutar el código
+
+Pasos para ejecutar el proyecto del traductor dirigido por la sintaxis desde consola o terminal
+
+1. Verificar que Python esté instalado
+
+   * Abre la terminal o consola.
+   * Escribe:
+     python --version
+     Si aparece una versión 3.x.x, significa que Python está instalado correctamente.
+   * Si no aparece, debes descargarlo desde [https://www.python.org/downloads/](https://www.python.org/downloads/) e instalarlo.
+
+2. Crear una carpeta para el proyecto
+
+   * Crea una carpeta en el escritorio o en cualquier ubicación, por ejemplo:
+     TraductorSintaxis
+   * Dentro de esa carpeta guarda dos archivos:
+     a) El archivo del código Python (por ejemplo traductor_sintaxis.py).
+     b) Un archivo de texto llamado expresiones.txt.
+
+3. Preparar el archivo expresiones.txt
+
+   * En este archivo se colocan las expresiones aritméticas que el programa debe analizar, una por línea.
+   * Ejemplo de contenido:
+     3 + 4 * 2
+     (2 + 5) * 3
+     8 / 4 + 6
+     10 - 2 * (3 + 1)
+
+4. Instalar las librerías necesarias
+
+   * Abre la terminal en la carpeta del proyecto.
+   * Ejecuta los siguientes comandos:
+     pip install graphviz
+     pip install networkx
+     pip install matplotlib
+   * Si usas Windows, puede ser necesario instalar también el programa Graphviz desde
+     [https://graphviz.org/download/](https://graphviz.org/download/)
+     Durante la instalación, asegúrate de marcar la opción “Add Graphviz to the system PATH”.
+
+5. Verificar que Graphviz funcione
+
+   * En la consola escribe:
+     dot -V
+     Si muestra una versión, la instalación está correcta.
+
+6. Ejecutar el programa
+
+   * En la terminal, estando dentro de la carpeta del proyecto, escribe:
+     python traductor_sintaxis.py
+   * El programa leerá las expresiones del archivo expresiones.txt, analizará cada una, generará el árbol decorado y mostrará los resultados en consola.
+   * Por cada expresión, se abrirá automáticamente una ventana con el árbol decorado generado por Graphviz.
+   * También se guardarán las imágenes de los árboles en la misma carpeta del proyecto con nombres del tipo arbol_xxxxx.png.
+
+7. Revisar la salida en consola
+
+   * Se mostrará el resultado de cada expresión evaluada.
+   * Al final se imprimirá la tabla de símbolos con los resultados acumulados de cada operación.
+
+8. Archivos generados
+
+   * arbol_XXXXX.png: imágenes de los árboles decorados de cada expresión.
+   * tabla_simbolos.txt (si activas la opción de guardado en el código): archivo con la tabla de símbolos.
+
+9. Para ejecutar nuevamente con otras expresiones
+
+   * Modifica el contenido de expresiones.txt.
+   * Guarda los cambios y vuelve a ejecutar:
+     python traductor_sintaxis.py
+
+Con estos pasos, cualquier usuario puede ejecutar el proyecto completo desde la terminal sin usar un entorno de desarrollo.
+                          
+
 
