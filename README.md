@@ -17,3 +17,12 @@ Donde se consideró que E es una expresión que representa las sumas y restas, T
 
 ## Fase 2 Atributos
 
+Para la fase de atributos se implementaron los siguientes con respecto a la gramáticas establecida con anterioridad:
+
+E.val: Para la evaluación de operaciones de suma y resta.
+
+T.val: Para la evaluación de operaciones de multiplicación y división.
+
+Num.val: Para el valor léxico del número leído.
+
+## Fase 3 Conjunto de Primeros, Segundos y producción 
