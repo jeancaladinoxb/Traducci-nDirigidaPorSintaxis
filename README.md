@@ -203,6 +203,8 @@ Pasos para ejecutar el proyecto del traductor dirigido por la sintaxis desde con
      pip install networkx
 
      pip install matplotlib
+      
+     brew install graphviz
 
    * Si usas Windows, puede ser necesario instalar también el programa Graphviz desde
      [https://graphviz.org/download/](https://graphviz.org/download/)
@@ -217,7 +219,7 @@ Pasos para ejecutar el proyecto del traductor dirigido por la sintaxis desde con
 6. Ejecutar el programa
 
    * En la terminal, estando dentro de la carpeta del proyecto, escribe:
-     python traductor_sintaxis.py
+     python3 traductor_sintaxis.py
    * El programa leerá las expresiones del archivo expresiones.txt, analizará cada una, generará el árbol decorado y mostrará los resultados en consola.
    * Por cada expresión, se abrirá automáticamente una ventana con el árbol decorado generado por Graphviz.
    * También se guardarán las imágenes de los árboles en la misma carpeta del proyecto con nombres del tipo arbol_xxxxx.png.
