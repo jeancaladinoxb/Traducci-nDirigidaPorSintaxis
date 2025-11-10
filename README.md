@@ -171,7 +171,7 @@ Pasos para ejecutar el proyecto del traductor dirigido por la sintaxis desde con
 1. Verificar que Python esté instalado
 
    * Abre la terminal o consola.
-   * Escribe:
+   * Escribir:
      python --version
      Si aparece una versión 3.x.x, significa que Python está instalado correctamente.
    * Si no aparece, debes descargarlo desde [https://www.python.org/downloads/](https://www.python.org/downloads/) e instalarlo.
@@ -197,9 +197,13 @@ Pasos para ejecutar el proyecto del traductor dirigido por la sintaxis desde con
 
    * Abre la terminal en la carpeta del proyecto.
    * Ejecuta los siguientes comandos:
+
      pip install graphviz
+
      pip install networkx
+
      pip install matplotlib
+
    * Si usas Windows, puede ser necesario instalar también el programa Graphviz desde
      [https://graphviz.org/download/](https://graphviz.org/download/)
      Durante la instalación, asegúrate de marcar la opción “Add Graphviz to the system PATH”.
